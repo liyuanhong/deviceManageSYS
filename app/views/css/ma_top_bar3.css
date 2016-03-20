@@ -1,0 +1,8 @@
+#ctrl_div2 {height: 36px;width:100%;background-color: #999999;}
+#ctrl_div2 button:nth-child(1) {color: black;margin-top: 8px;position:absolute;margin-left: 50px;_background-color: #aaaaaa;font-size:15px;}
+#ctrl_div2 button:nth-child(2) {color: black;margin-top: 8px;position:absolute;margin-left: 150px;_background-color: #aaaaaa;font-size:15px;}
+#ctrl_div2 button:nth-child(3) {color: black;margin-top: 8px;position:absolute;margin-left: 250px;_background-color: #aaaaaa;font-size:15px;}
+#ctrl_div2 button:nth-child(4) {color: black;margin-top: 8px;position:absolute;margin-left: 350px;_background-color: #aaaaaa;font-size:15px;}
+#ctrl_div2 button:nth-child(5) {color: black;margin-top: 8px;position:absolute;margin-left: 450px;_background-color: #aaaaaa;font-size:15px;}
+#ctrl_div2 button:nth-child(6) {color: black;margin-top: 8px;position:absolute;margin-left: 550px;_background-color: #cccccc;font-size:15px;}
+.ma_page_man {background-color:#aaaaaa;}
