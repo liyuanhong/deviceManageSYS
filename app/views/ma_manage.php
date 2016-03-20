@@ -42,6 +42,14 @@
 				  include "ma_show_all_dev.php";
 			  }else if($ma_page_man == "ma_page_man_borrowing"){
 				  include "ma_show_borrowing_dev.php";
+			  }else if($ma_page_man == "ma_page_man_android"){
+				  include "ma_show_android_dev.php";
+			  }else if($ma_page_man == "ma_page_man_ios"){
+				  include "ma_show_ios_dev.php";
+			  }else if($ma_page_man == "ma_page_man_noborrowing"){
+				  include "ma_show_noborrowing_dev.php";
+			  }else if($ma_page_man == "ma_page_man_applying"){
+				  include "ma_show_applying_dev.php";
 			  }
 		  }
 			

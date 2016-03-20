@@ -1,4 +1,4 @@
-<link href="css/ma_show_android_dev.css" rel="stylesheet" type="text/css"/>
+<link href="css/ma_show_ios_dev.css" rel="stylesheet" type="text/css"/>
 <div id="div_search_dev">
 <div>
 <table id="head_info" border="1">
@@ -7,14 +7,14 @@
   </tr>
 </table>
   <?php 
-	 //require '../config/config.php';
+	//require '../config/config.php';
 	require '../modules/DeviceManage.php';
 	$obj = new DeviceManage;
-	$result = $obj->getAndroidShow(); 
+	$result = $obj->getIosDataShow(); 
 	$jsonObj = json_decode($result);
 	for($i=0;$i<count($jsonObj->result);$i++){
 	echo "<table id='head_info' border='1'><tr><th>";
-  echo $i + 1;			
+  echo $i + 1;		
   echo "</th><th>";
   echo $jsonObj->result[$i]->device_name;			
   echo "</th><th>";
@@ -30,7 +30,7 @@
   echo "</th><th>";
   echo $jsonObj->result[$i]->sim_number;
   echo "</th><th>";
-  if($jsonObj->result[$i]->status == 0 || $jsonObj->result[$i]->status == 1){
+   if($jsonObj->result[$i]->status == 0 || $jsonObj->result[$i]->status == 1){
 		
   }else{
 		echo $jsonObj->result[$i]->borrower;

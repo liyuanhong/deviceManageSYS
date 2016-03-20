@@ -6,7 +6,6 @@
 #head_info th:nth-child(6) {width:40px;}
 #head_info th:nth-child(7) {width:80px;}
 #head_info th:nth-child(9) {width:90px;}
-#head_info th:nth-child(11) {width:65px;}
-#head_info th:nth-child(12) {width:65px;}
-#head_info th:nth-child(13) {width:65px;}
+#head_info th:nth-child(10) {width:90px;}
+#head_info th:nth-child(11) {width:90px;}
 #head_info th:nth-child(1) {width:50px;height:40px;border-color:#cccccc;_border-left:none;border-top:none;_border-right:none;border-collapse:collapse;}
