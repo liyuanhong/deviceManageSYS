@@ -1,0 +1,10 @@
+#div_add_dev {width:100%;min-height:90%;_background:yellow;display:block;}
+#info {width:1012px;min-height:90%;_background-color:white;margin:0 auto;_display:none;}
+#info_table th {width:330px;height:60px;}
+#info_table label {float:left;position:relative;top:10px;}
+#info_table input {width:230px;height:40px;float:right;font-size:14px;}
+#info_table select {width:230px;height:40px;float:right;font-size:14px;}
+.need_star {color:red;float:left;position:relative;top:10px;}
+#add_divice_button {width:230px;height:40px;margin-top:10px;font-size:14px;margin-left:102;}
+#clear_button {width:230px;height:40px;margin-top:10px;font-size:14px;margin-left:96;}
+#default_button {width:230px;height:40px;margin-top:10px;font-size:14px;margin-left:96;}

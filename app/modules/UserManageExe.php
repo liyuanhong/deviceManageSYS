@@ -6,11 +6,13 @@ $itface = $_GET['itface'];
 $obj = new userManage;
 if($itface == "addUser"){
 		$obj->addUser();
-	}else if($itface == "delAnUser"){
-		$obj->delAnUser();
-	}else if($itface == "modifyUserInfo"){
-		$obj->modifyUserInfo();
-	}else if($itface == "login"){
-		$obj->login();
-	}
+}else if($itface == "delAnUser"){
+	$obj->delAnUser();
+}else if($itface == "modifyUserInfo"){
+	$obj->modifyUserInfo();
+}else if($itface == "login"){
+	$obj->login();
+}else if($itface == "register"){
+	$obj->addUser();
+}
 ?>

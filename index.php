@@ -1,6 +1,6 @@
 <?php 
-$url = '10.10.153.105';
-$dir = '/var/www/html/deviceManageSYS';
+$url = '10.10.70.51';
+$dir = '/var/www/html/deviceManageSYS/';
 $file=scandir($dir);
 for($i = 0;$i < count($file);$i++){
 	if($file[$i] == '.' || $file[$i] == '..'){

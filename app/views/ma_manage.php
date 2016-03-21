@@ -33,11 +33,11 @@
 	?>
   	<div id="main">	  
 	  <?php 
-	  include "se_top_bar.php";
-	  include "ma_top_bar2.php";
-	  include "ma_top_bar3.php";
+	  include "se_top_bar.php";	  
 	  if($ma_page == "dev_manage"){
-		  if($ma_page_to = "ma_page_to_dev"){
+		  include "ma_top_bar2.php";
+		  if($ma_page_to == "ma_page_to_dev"){
+			  include "ma_top_bar3.php";
 			  if($ma_page_man == "ma_page_man_all"){
 				  include "ma_show_all_dev.php";
 			  }else if($ma_page_man == "ma_page_man_borrowing"){
@@ -51,13 +51,14 @@
 			  }else if($ma_page_man == "ma_page_man_applying"){
 				  include "ma_show_applying_dev.php";
 			  }
-		  }
-			
-		}else if($ma_page == "dev_add"){
-			
-		}else if($ma_page == "user_manage"){
-			
-		}
+		  }else if($ma_page_to == "ma_page_to_add"){
+			  include "ma_add_dev.php";	
+		  }else if($ma_page_to == "ma_page_to_user"){
+			  include "ma_manage_user.php";
+		  }else if($ma_page_to == "ma_page_to_other"){
+
+		  }	
+	  }
 	  ?>
 	  
 	</div>

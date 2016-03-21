@@ -1,5 +1,5 @@
 //查询设备和设备管理界面切换
-var ipAddr = "192.168.8.155"
+var ipAddr = "10.10.70.51"
 
 function divSwitch(e){
 	e = e || window.event;
@@ -53,7 +53,7 @@ function addDevice(e){
 	if(device_name == "" || device_mode == ""){
 		alert("【设备名】和【型号】不能为空！")
 	}else{
-		$.get("http://" + ipAddr + "/diviceManageSYS/php/addDevice.php", {device_name:device_name,device_mode:device_mode,pixel:pixel,ram:ram,cpu_hz:cpu_hz,screen_size:screen_size,color:color,for_camara:for_camara,back_camara:back_camara,sim_number:sim_number,sdcard:sdcard,platform:platform,sys_version},
+		$.get("http://" + ipAddr + "/deviceManageSYS/app/modules/DeviceManageExe.php", {itface:"addDev",device_name:device_name,device_mode:device_mode,pixel:pixel,ram:ram,cpu_hz:cpu_hz,screen_size:screen_size,color:color,for_camara:for_camara,back_camara:back_camara,sim_number:sim_number,sdcard:sdcard,platform:platform,sys_version},
 		function(data){
 			alert(data);
 		});
@@ -82,12 +82,12 @@ function modifyDevice(e){
 	if(device_name == "" || device_mode == ""){
 		alert("【设备名】和【型号】不能为空！")
 	}else{
-		$.get("http://" + ipAddr + "/diviceManageSYS/php/modifyDevice.php", {id:id,device_name:device_name,device_mode:device_mode,pixel:pixel,ram:ram,cpu_hz:cpu_hz,screen_size:screen_size,color:color,for_camara:for_camara,back_camara:back_camara,sim_number:sim_number,sdcard:sdcard,platform:platform,sys_version},
+		$.get("http://" + ipAddr + "/deviceManageSYS/app/modules/DeviceManageExe.php", {itface:"modifyDev",id:id,device_name:device_name,device_mode:device_mode,pixel:pixel,ram:ram,cpu_hz:cpu_hz,screen_size:screen_size,color:color,for_camara:for_camara,back_camara:back_camara,sim_number:sim_number,sdcard:sdcard,platform:platform,sys_version},
 		function(data){
 			alert(data);
 			var strcookie=document.cookie.split(";")[0].split("=")[1];
-			var req = "&info=" + strcookie;
-			window.location.href="http://" + ipAddr + "/diviceManageSYS/devManageModify.php?id=" + id + req;
+			var req = "&ma_page=dev_manage&ma_page_to=ma_page_to_add&info=" + strcookie;
+			window.location.href="http://" + ipAddr + "/deviceManageSYS/app/views/ma_manage.php?id=" + id + req;
 		});
 	}
 	
@@ -139,6 +139,10 @@ function manDevSwitch(e){
 	}else if (e.target.id == "user_manage_but"){
 		var strcookie=document.cookie.split(";")[0].split("=")[1];
 		var req = "?ma_page=dev_manage&ma_page_to=ma_page_to_user&info=" + strcookie;
+		window.location.href="http://" + ipAddr + "/deviceManageSYS/app/views/ma_manage.php" + req;
+	}else if (e.target.id == "other_manage_but"){
+		var strcookie=document.cookie.split(";")[0].split("=")[1];
+		var req = "?ma_page=dev_manage&ma_page_to=ma_page_to_other&info=" + strcookie;
 		window.location.href="http://" + ipAddr + "/deviceManageSYS/app/views/ma_manage.php" + req;
 	}
 
@@ -197,7 +201,7 @@ function applyForDev(e){
 	borrower = $(textid).val();	
 	var url = location.href;
 	if(borrower != ""){
-		$.get("http://" + ipAddr + "/diviceManageSYS/php/applyForDev.php", {id:id,borrower:borrower},
+		$.get("http://" + ipAddr + "/deviceManageSYS/app/modules/DeviceManageExe.php", {itface:"applyFor",id:id,borrower:borrower},
 		function(data){
 			window.location.href=url;
 		});		
@@ -212,7 +216,7 @@ function cancleApplyForDev(e){
 	id = e.target.id;
 	id = id.replace(/\s+/g, "");
 	var url = location.href;
-	$.get("http://" + ipAddr + "/diviceManageSYS/php/cancleApplyForDev.php", {id:id},
+	$.get("http://" + ipAddr + "/deviceManageSYS/app/modules/DeviceManageExe.php", {itface:"cancleAplyFor",id:id},
 	function(data){
 		window.location.href=url;
 	});
@@ -226,7 +230,7 @@ function delDevice(e){
 		id = e.target.id;
 		url = location.href;
 		id = id.replace(/\s+/g, "");
-		$.get("http://" + ipAddr + "/diviceManageSYS/php/delDevice.php", {id:id},
+		$.get("http://" + ipAddr + "/deviceManageSYS/app/modules/DeviceManageExe.php", {itface:"delDevice",id:id},
 			function(data){
 			window.location.href=url;
 		});
@@ -241,7 +245,7 @@ function verifyBorrow(e){
 	id = e.target.id;
 	var url = location.href;
 	id = id.replace(/\s+/g, "");
-	$.get("http://" + ipAddr + "/diviceManageSYS/php/verifyBorrow.php", {id:id},
+	$.get("http://" + ipAddr + "/deviceManageSYS/app/modules/DeviceManageExe.php", {itface:"verifyBorrow",id:id},
 		function(data){
 		window.location.href=url;
 	});
@@ -253,7 +257,7 @@ function refuseBorrow(e){
 	id = e.target.id;
 	url = location.href;
 	id = id.replace(/\s+/g, "");
-	$.get("http://" + ipAddr + "/diviceManageSYS/php/refuseBorrow.php", {id:id},
+	$.get("http://" + ipAddr + "/deviceManageSYS/app/modules/DeviceManageExe.php", {itface:"refuseBorrow",id:id},
 		function(data){
 		window.location.href=url;
 	});
@@ -265,7 +269,7 @@ function verifyBack(e){
 	id = e.target.id;
 	url = location.href;
 	id = id.replace(/\s+/g, "");
-	$.get("http://" + ipAddr + "/diviceManageSYS/php/verifyBack.php", {id:id},
+	$.get("http://" + ipAddr + "/deviceManageSYS/app/modules/DeviceManageExe.php", {itface:"verifyBack",id:id},
 		function(data){
 		window.location.href=url;
 	});
@@ -278,7 +282,7 @@ function verifyBack2(e){
 	id = id.substr(6);
 	url = location.href;
 	id = id.replace(/\s+/g, "");
-	$.get("http://" + ipAddr + "/diviceManageSYS/php/verifyBack.php", {id:id},
+	$.get("http://" + ipAddr + "/deviceManageSYS/app/modules/DeviceManageExe.php", {itface:"verifyBack",id:id},
 		function(data){
 		window.location.href=url;
 	});
@@ -291,7 +295,7 @@ function toModifyDevPage(e){
 	id = id.substr(6);
 	var strcookie=document.cookie.split(";")[0].split("=")[1];
 	var req = "&info=" + strcookie;
-	window.location.href="http://" + ipAddr + "/diviceManageSYS/devManageModify.php?id=" + id + req;
+	window.location.href="http://" + ipAddr + "/deviceManageSYS/app/views/ma_modify_dev_info.php?id=" + id + req;
 }
 
 //跳转到用户信息修改页面
@@ -301,7 +305,7 @@ function toModifyUserPage(e){
 	id = id.substr(6);
 	var strcookie=document.cookie.split(";")[0].split("=")[1];
 	var req = "&info=" + strcookie;
-	window.location.href="http://" + ipAddr + "/diviceManageSYS/userManageModify.php?id=" + id + req;
+	window.location.href="http://" + ipAddr + "/deviceManageSYS/app/views/ma_modify_user_info.php?id=" + id + req;
 }
 
 //删除一个用户
@@ -313,7 +317,7 @@ function delAnUser(e){
 		var strcookie=document.cookie.split(";")[0].split("=")[1];
 		var req = "&info=" + strcookie;
 		url = location.href;
-		$.get("http://" + ipAddr + "/diviceManageSYS/php/delAnUser.php", {id:id},
+		$.get("http://" + ipAddr + "/deviceManageSYS/app/modules/UserManageExe.php", {itface:"delAnUser",id:id},
 			function(data){
 			window.location.href=url;
 		});
@@ -341,7 +345,7 @@ function modifyUserInfo(e){
 		if(theRole == 1 && role == 0){
 			alert("对不起，权限不够！");
 		}else{
-			$.get("http://" + ipAddr + "/diviceManageSYS/php/modifyUserInfo.php", {id:id,loginname:loginname,username:username,
+			$.get("http://" + ipAddr + "/deviceManageSYS/app/modules/UserManageExe.php", {itface:"modifyUserInfo",id:id,loginname:loginname,username:username,
 			password:password,role:role,session:session},
 			function(data){
 				alert(data);
@@ -371,10 +375,10 @@ function register(e){
 		alert("密码不能为空！");
 	}else{
 		if(password == repassword){
-			$.get("http://" + ipAddr + "/diviceManageSYS/php/addUser.php",{loginname:loginname,username:username,password:password},
+			$.get("http://" + ipAddr + "/deviceManageSYS/app/modules/UserManageExe.php",{itface:"register",loginname:loginname,username:username,password:password},
 				function(data){
 				alert("注册成功。\n请联系管理员，修改权限后即可登录！");
-				window.location.href="http://" + ipAddr + "/diviceManageSYS/"
+				window.location.href="http://" + ipAddr + "/deviceManageSYS/app/views"
 			});
 		}else{
 			alert("两次输入的密码不一致！");
@@ -398,7 +402,7 @@ function login(e){
 			if(data != "fail"){
 				document.cookie="info="+data;
 				var strcookie=document.cookie.split(";")[0].split("=")[1];
-				var req = "?ma_page=dev_manage&info=" + strcookie;
+				var req = "?ma_page=dev_manage&ma_page_to=ma_page_to_dev&ma_page_man=ma_page_man_all&info=" + strcookie;
 				window.location.href="http://" + ipAddr + "/deviceManageSYS/app/views/ma_manage.php" + req;
 			}else{
 				alert("用户名或密码错误！");

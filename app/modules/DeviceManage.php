@@ -222,7 +222,9 @@ class DeviceManage{
 		$sys_version = $_GET['sys_version'];
 
 		$t1 = time();
+
 		$t1 = date('Y-m-d H:i:s',$t1);
+		$t1 = date.timezone('Y-m-d H:i:s',$t1);
 
 		$con = self::connectMysql();
 		//self::setCoding();

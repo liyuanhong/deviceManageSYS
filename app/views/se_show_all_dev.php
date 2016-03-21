@@ -48,9 +48,6 @@
 		  echo "</th><th>";
 		  if($jsonObj->result[$i]->status == 0){
 				echo "<input style='text' class='input_name' id='input" . $jsonObj->result[$i]->id. "' value='".getMemberFromIP()."'/>";
-				//echo "<input style='text' class='input_name' id='input"
-				//echo $jsonObj->result[$i]->id ;
-				//echo "'></input>"
 		  }else{
 				echo $jsonObj->result[$i]->borrower;
 		  }

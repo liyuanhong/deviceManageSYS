@@ -51,7 +51,6 @@ class UserManage{
 		//self::setCoding();
 		mysql_select_db("deviceSYS", $con);
 		$querry = "INSERT INTO users (loginname,username,password) VALUES ('$loginname','$username','$password')";	
-		//$querry = "INSERT INTO users (loginname,username,password) VALUES ('aaa','bbb','ccc')";
 		self::setCoding();
 		mysql_query($querry);
 		mysql_close($con);		

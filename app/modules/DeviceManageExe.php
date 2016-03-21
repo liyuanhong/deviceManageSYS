@@ -19,5 +19,9 @@ if($itface == "addDevice"){
 		$obj->verifyBack();
 	}else if($itface == "verifyBorrow"){
 		$obj->verifyBorrow();
+	}else if($itface == "addDev"){
+		$obj->addDevice();
+	}else if($itface == "modifyDev"){
+		$obj->modifyDevice();
 	}
 ?>
