@@ -33,7 +33,8 @@
   if($jsonObj->result[$i]->status == 0 || $jsonObj->result[$i]->status == 1){
 		
   }else{
-		echo $jsonObj->result[$i]->borrower;
+		//echo $jsonObj->result[$i]->borrower;
+		echo '<input style="test;width:80px;font-weight:bold;" disabled="disabled" id="input'. $jsonObj->result[$i]->id.'" value="'.$jsonObj->result[$i]->borrower.'" class="input_name" ></input><button id=modify'.$jsonObj->result[$i]->id.' onclick="toModify(event)">修改</button>';
   }
   echo "</th><th>";
   if($jsonObj->result[$i]->status == 2){

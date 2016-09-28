@@ -414,3 +414,28 @@ function login(e){
 function jumpToIndex(){
 	window.location.href="http://" + ipAddr + "/deviceManageSYS/app/views/";
 }
+
+
+function toModify(e){
+	e = e || window.event;
+	id = e.target.id;
+	textid = "#input" + id.substring(6);
+	id1 = id.substring(6);
+	borrower = $(textid).val();	
+	var url = location.href;
+	if($(textid).attr("disabled")=="disabled"){
+		$(textid).removeAttr("disabled");
+		$(id).text("确认");
+	}else{
+		alert("签借用户修改成功！");
+		if(borrower != ""){
+			$.get("http://" + ipAddr + "/deviceManageSYS/app/modules/DeviceManageExe.php", {itface:"verifyBorrow2",id:id1,borrower:borrower},
+			function(data){
+			window.location.href=url;
+		});		
+		}else{
+			alert("必须填写申请者的名字！");
+		}
+	}
+	
+}
